@@ -1,5 +1,5 @@
 
-### 免root兼容所有Android版本屏幕共享及远程控制。
+### 
 ### 效果
 ![demo](https://github.com/android-notes/androidScreenShareAndControl/blob/master/demo.gif?raw=true)
 ### 使用方式
@@ -45,7 +45,7 @@ MGJwanjian:~ wanjian$ adb forward tcp:8888 localabstract:puppet-ver1
 
 
 
-### 屏幕共享原理
+### 原理
 
 原理和Vysor相同，Android提供了两个截屏方法Surface. screenshot和SurfaceControl. screenshot，
 这两个API是隐藏的，客户端没有权限调用，即使通过反射也得不到bitmap，我们可以使用adb命令
@@ -82,7 +82,7 @@ public class Main{
 
  这样就可以调用到Main.main方法
 
-### 远程控制原理
+### 控制原理
 
 * PC端获取点击位置相对于当前显示窗口的比例
 * 把该比例发送给手机端
@@ -210,7 +210,7 @@ public interface IRotationWatcher {
 
 
 ### 打包dex方式：
-首先命令窗口切换到 `androidScreenShareAndControl/shareandcontrollib/build/intermediates/classes/debug` 目录下，可以看到
+首先命令窗口切换到 `/androidScreenShareAndControl/shareandcontrollib/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes` 目录下，可以看到
 所有编译生成的class文件，如果没有先执行上面步骤生成class文件。
 
 然后使用 `dx  --dex --output=Main.dex ./`命令生成dex文件。dx命令文件在 `sdk/build-tools/版本号` 下
